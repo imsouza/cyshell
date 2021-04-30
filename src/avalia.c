@@ -21,15 +21,15 @@ Objeto *avalia (Fila *posFixa) {
         break;
 
       case OPER_ADICAO:
-      	resposta = criaObjeto();
+        resposta = criaObjeto();
         va1 = copiaObjeto(topoPilha(pilhaDeExecucao));
         desempilha(pilhaDeExecucao);
         va2 = copiaObjeto(topoPilha(pilhaDeExecucao));
         desempilha(pilhaDeExecucao);
 
         if (va1->categoria == INT && va2->categoria == INT) {
-			    resposta->categoria  = INT;
-			    resposta->valor.vInt = va1->valor.vInt + va2->valor.vInt;
+          resposta->categoria  = INT;
+          resposta->valor.vInt = va1->valor.vInt + va2->valor.vInt;
         } else {
           if (va1->categoria == FLOAT && va2->categoria == FLOAT) {
             resposta->categoria    = FLOAT;
@@ -200,13 +200,13 @@ Objeto *avalia (Fila *posFixa) {
 
 
       default:
-      	break;
-  	}
+        break;
+    }
 
     if (va1) { liberaObjeto(va1); }
     if (va2) { liberaObjeto(va2); }
 
-  	dequeue(posFixa);
+    dequeue(posFixa);
   }
 
   Objeto *copiaPilha = copiaObjeto(topoPilha(pilhaDeExecucao));

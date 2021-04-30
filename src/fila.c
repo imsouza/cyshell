@@ -107,7 +107,7 @@ void imprimeFila (Fila *f, int tipo) {
 
 
 /* Função de Alta Ordem que recebe uma fila e uma função (cb). */
-void converteElementosFila(Fila *f, void (*cb)(Objeto *)) {
+void converteElementosFila (Fila *f, void (*cb)(Objeto *)) {
   Objeto *temp = f->inicio;
 
   while (temp != NULL) {
