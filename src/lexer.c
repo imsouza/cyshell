@@ -13,9 +13,9 @@
 #include "objeto.h"
 
 /* Mensagens de erro de sintaxe */
-#define SYNTAX_ERROR(pos,erroMsg)  \
-    fprintf(stderr, "    %s\n", linha);  \
-    fprintf(stderr, "    %*c^\n", pos, ' ');  \
+#define SYNTAX_ERROR(pos,erroMsg) \
+    fprintf(stderr, "    %s\n", linha); \
+    fprintf(stderr, "    %*c^\n", pos, ' '); \
     ERRO(criaFilaObjetos em Lexer.c: erroMsg);
 
 static const char *whiteSpace = " \t\v\f\n";
@@ -26,7 +26,9 @@ static const char *carOperadores = "^%*/+-_";
 
 /* Verifica se a string é um delimitador */
 bool isDelimiter (char ch) {
-  return (strchr(whiteSpace, ch) || strchr(carOperadores, ch) || ch == '(' || ch == ')' || ( ch != '.'  && ispunct(ch)));
+  return (strchr(whiteSpace, ch)|| \
+          strchr(carOperadores, ch)|| \
+  ch == '(' || ch == ')' || ( ch != '.'  && ispunct(ch)));
 }
 
 
@@ -78,7 +80,8 @@ bool isRealNumber (char* str) {
   }
 
   for (i = 0; i < len; i++) {
-    if ( (!isdigit(str[i]) && str[i] != '.') || (str[i] == '-' && i > 0)) {
+    if ((!isdigit(str[i]) && str[i] != '.') || \
+       (str[i] == '-' && i > 0)) {
       return false;
     } if (str[i] == '.' && hasDecimal) {
       return false;
@@ -130,7 +133,8 @@ Fila *criaFilaObjetos (String linha) {
       if ( isOperator(linha[right]) ) {
         /* procura pelo operador */
         int j = 0;
-        while (j < MAX_SIMBOLOS && strncmp(&linha[right], getOperador(j), strlen(getOperador(j)))) {
+        while (j < MAX_SIMBOLOS && strncmp(&linha[right], \
+              getOperador(j), strlen(getOperador(j)))) {
           j++;
         }
 
@@ -145,8 +149,10 @@ Fila *criaFilaObjetos (String linha) {
 
       right++;
       left = right;
-    } 
-    else if ( (isDelimiter(linha[right]) && left != right) || (right == len && left != right)) {
+    }
+
+    else if ((isDelimiter(linha[right]) && left != right)|| \
+             (right == len && left != right)) {
       String subStr = subString(linha, left, right - 1);
       encontrouObjeto = true;
       if ( isInteger(subStr) ) {
