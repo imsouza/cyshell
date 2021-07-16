@@ -5,16 +5,16 @@ Uma aplicação que simula o shell do Python, em C, para avaliação de express�
 ## Execução
 
 #### Modo interativo
-```$ make && ./cyshell```
+```$ make && make run```
 
 #### Modo interativo com exibição da expressão pós-fixa
-```$ make && ./cyshell -e```
+```$ make && make run args=-e```
 
 #### Calcular expressões de um arquivo
-```$ make && ./cyshell -s expressões.txt```
+```$ make && make run args="-s ../test/expressoes.txt"```
 
 #### Calcular expressões de um arquivo e exibir a pós-fixa
-```$ make && ./cyshell -e -s expressões.txt```
+```$ make && make run args="-e -s ../test/expressoes.txt"```
 
 #### Checar memory leaks
 
