@@ -32,21 +32,13 @@ MD = $(shell mkdir -p $(DIR_OUT))
 
 all:$(OBJ) $(EXE)
 %.o: %.c
-	@ echo 'Building target using GCC compiler:$@'
 	$(MD)
 	$(CC) $(DIR_INC) $(CC_FLAGS) $< -o $@
-	@ echo ' '
 
 $(EXE): $(OBJ)
-	@ echo 'Building binary using GCC linker: $<'
 	$(CC) $(OBJ) -lm -o $@ $(DIR_INC)
-	@ echo 'Finished building binary: $@'
-	@ echo ' '
 
-	@ echo 'Removing remaining objects...'
 	$(RM) $(DIR_SRC)/*.o
-	@ echo 'Done!'
-	@ echo ' '
 
 clean:
 	cd obj && $(RM) $(PROJECT)

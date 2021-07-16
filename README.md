@@ -7,6 +7,8 @@ Uma aplicação que simula o shell do Python, em C, para avaliação de express�
 #### Modo interativo
 ```$ make && make run```
 
+> Use ```quit``` para sair do modo interativo
+
 #### Modo interativo com exibição da expressão pós-fixa
 ```$ make && make run args=-e```
 

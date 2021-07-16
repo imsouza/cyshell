@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "pilha.h"
 #include "fila.h"
@@ -50,6 +51,12 @@ int main (int argc, char *argv[]) {
 
   /* Analisa cada linha do arquivo ou da entrada padrão */
   while (fgets(linha, MAX_TAMANHO, fEntrada) != NULL) {
+    if (strcmp(linha, "quit\n") == 0) {
+      printf("Encerrando programa...\n");
+      sleep(1);
+      fclose(fEntrada);
+      exit(0);
+    }
     // substitui o '\n' por '\0'
     if (linha[strlen(linha) - 1] == '\n') {
       linha[strlen(linha) - 1] = '\0';
