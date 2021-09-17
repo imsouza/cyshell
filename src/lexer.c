@@ -1,7 +1,3 @@
-/*
- * ESTE ARQUIVO NÃO PRECISA SER MODIFICADO, APENAS ENTENDA O QUE CADA FUNÇÃO FAZ
- */
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
